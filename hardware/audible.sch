@@ -1110,6 +1110,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R9" library="passives" deviceset="RESISTOR" device="0402_RES" value="10k"/>
 <part name="C6" library="passives" deviceset="CAPACITOR" device="" value="22uF"/>
 <part name="GND12" library="umich" deviceset="GND" device=""/>
+<part name="C7" library="passives" deviceset="CAPACITOR" device="" value="0.01uF"/>
+<part name="GND13" library="umich" deviceset="GND" device=""/>
+<part name="C8" library="passives" deviceset="CAPACITOR" device="" value="0.1uF"/>
+<part name="GND14" library="umich" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1146,7 +1150,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND6" gate="1" x="104.14" y="96.52"/>
 <instance part="GND7" gate="1" x="50.8" y="48.26"/>
 <instance part="GND10" gate="1" x="132.08" y="66.04"/>
-<instance part="P+3" gate="VCC" x="48.26" y="81.28"/>
+<instance part="P+3" gate="VCC" x="48.26" y="91.44"/>
 <instance part="P+5" gate="VCC" x="165.1" y="119.38"/>
 <instance part="P+6" gate="VCC" x="193.04" y="86.36"/>
 <instance part="C3" gate="G$1" x="86.36" y="104.14" rot="R90"/>
@@ -1164,6 +1168,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R9" gate="G$1" x="208.28" y="78.74"/>
 <instance part="C6" gate="G$1" x="198.12" y="53.34" rot="R180"/>
 <instance part="GND12" gate="1" x="198.12" y="45.72"/>
+<instance part="C7" gate="G$1" x="53.34" y="83.82" rot="R270"/>
+<instance part="GND13" gate="1" x="58.42" y="78.74"/>
+<instance part="C8" gate="G$1" x="20.32" y="104.14"/>
+<instance part="GND14" gate="1" x="20.32" y="93.98"/>
 </instances>
 <busses>
 </busses>
@@ -1202,7 +1210,10 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <segment>
 <pinref part="IC1" gate="G$1" pin="VDD"/>
 <pinref part="P+3" gate="VCC" pin="VCC"/>
-<wire x1="48.26" y1="76.2" x2="48.26" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="76.2" x2="48.26" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="C7" gate="G$1" pin="2"/>
+<wire x1="48.26" y1="83.82" x2="48.26" y2="88.9" width="0.1524" layer="91"/>
+<junction x="48.26" y="83.82"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="V+"/>
@@ -1295,6 +1306,17 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="GND12" gate="1" pin="GND"/>
 <pinref part="C6" gate="G$1" pin="1"/>
 <wire x1="198.12" y1="48.26" x2="198.12" y2="50.8" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C7" gate="G$1" pin="1"/>
+<wire x1="55.88" y1="83.82" x2="58.42" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="GND13" gate="1" pin="GND"/>
+<wire x1="58.42" y1="83.82" x2="58.42" y2="81.28" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C8" gate="G$1" pin="2"/>
+<pinref part="GND14" gate="1" pin="GND"/>
+<wire x1="20.32" y1="96.52" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="A6" class="0">
@@ -1531,8 +1553,12 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="VDD"/>
-<wire x1="30.48" y1="109.22" x2="27.94" y2="109.22" width="0.1524" layer="91"/>
-<label x="27.94" y="109.22" size="1.016" layer="95" rot="R180" xref="yes"/>
+<wire x1="30.48" y1="109.22" x2="20.32" y2="109.22" width="0.1524" layer="91"/>
+<label x="17.78" y="109.22" size="1.016" layer="95" rot="R180" xref="yes"/>
+<pinref part="C8" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="109.22" x2="17.78" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="106.68" x2="20.32" y2="109.22" width="0.1524" layer="91"/>
+<junction x="20.32" y="109.22"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
@@ -1646,6 +1672,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <wire x1="129.54" y1="78.74" x2="129.54" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="U2" gate="A" pin="INA-"/>
 <wire x1="129.54" y1="76.2" x2="132.08" y2="76.2" width="0.1524" layer="91"/>
+<label x="129.54" y="78.74" size="1.016" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="1"/>
