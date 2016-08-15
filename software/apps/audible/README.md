@@ -22,7 +22,7 @@ Manufacturer specific data in the advertisement:
 | 0     | `0x07`       | Length                                 |
 | 1     | `0xff`       | Header for manufacturer specific data  |
 | 2     | `0x02e0`     | University of Michigan manufacturer ID |
-| 4     | `0x12`       | Service identifier for audiBLE data    |
+| 4     | `0x1E`       | Service identifier for audiBLE data    |
 | 5-8   | `0x00000000` | Sound Level               |
 
 

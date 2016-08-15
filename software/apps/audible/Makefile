@@ -9,6 +9,9 @@ APPLICATION_SRCS += nrf_drv_common.c
 APPLICATION_SRCS += nrf_drv_gpiote.c
 APPLICATION_SRCS += app_gpiote.c
 APPLICATION_SRCS += app_timer.c
+APPLICATION_SRCS += app_error.c
+APPLICATION_SRCS += nrf_drv_adc.c
+APPLICATION_SRCS += app_util_platform.c
 
 APPLICATION_SRCS += led.c
 
@@ -20,7 +23,8 @@ APPLICATION_SRCS += multi_adv.c
 LIBRARY_PATHS += . ../../platform
 SOURCE_PATHS += ../../platform
 
-SOFTDEVICE_MODEL = s110
+SDK_VERSION = 11
+SOFTDEVICE_MODEL = s130
 RAM_KB = 32
 FLASH_KB = 256
 
