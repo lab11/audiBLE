@@ -13,13 +13,11 @@ var parse_advertisement = function (advertisement, cb) {
                 if (manufacturer_id == 0x02E0 && service_id == 0x1E) {
                     // This is a audiBLE packet
                     if (advertisement.manufacturerData.length == 5) {
-                        var pir = advertisement.manufacturerData.slice(3);
-
-                        var sound_level           = pir.readUInt16(0); // Value should be from 0-1023
+                        var sound_level = advertisement.manufacturerData.slice(1); // Value should be from 0-1023
 
                         var out = {
-                            device: 'Blink',
-                            sound_level:           sound_level
+                            device:       'Blink',
+                            sound_level:  sound_level
                         };
 
                         cb(out);
