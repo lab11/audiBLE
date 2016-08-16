@@ -2,7 +2,7 @@
 
 rm -fr _build
 
-cordova create _build edu.umich.eecs.lab11.blink.demo Blink
+cordova create _build edu.umich.eecs.lab11.audible audiBLE
 pushd _build
 cordova platform add android
 cordova plugin add cordova-plugin-whitelist
