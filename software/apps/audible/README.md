@@ -23,6 +23,6 @@ Manufacturer specific data in the advertisement:
 | 1     | `0xff`       | Header for manufacturer specific data  |
 | 2     | `0x02e0`     | University of Michigan manufacturer ID |
 | 4     | `0x1E`       | Service identifier for audiBLE data    |
-| 5-8   | `0x00000000` | Sound Level               |
+| 5-6   | `0x0000`     | Sound Level                            |
 
 

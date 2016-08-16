@@ -15,6 +15,7 @@ APPLICATION_SRCS += app_util_platform.c
 
 APPLICATION_SRCS += led.c
 
+APPLICATION_SRCS += audible.c
 APPLICATION_SRCS += simple_ble.c
 APPLICATION_SRCS += eddystone.c
 APPLICATION_SRCS += simple_adv.c
