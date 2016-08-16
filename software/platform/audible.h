@@ -30,5 +30,17 @@
 // Integrator Drain
 #define INT_DRAIN_PIN 24
 
+// Resets the integrator
+void audible_integrator_reset();
+
+// Turns on Audible Hardware
+void audible_power_up();
+
+// Turns off Audible Hardware
+void audible_power_down();
+
+// Inits AudiBLE
+void audible_init();
+
 #endif /*AUDIBLE_H*/
 

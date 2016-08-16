@@ -118,16 +118,19 @@ static void adv_config_data () {
 // }
 
 // ADC interrupt handler.
-static void adc_event_handler(nrf_drv_adc_evt_t const * p_event)
-{
+static void adc_event_handler(nrf_drv_adc_evt_t const * p_event) {
+	// When ADB buffer is full of samples
     if (p_event->type == NRF_DRV_ADC_EVT_DONE)
     {
         uint32_t i;
         for (i = 0; i < p_event->data.done.size; i++)
         {
-            //Do Stuff
+            // Get data
             aud_data.sound_level = p_event->data.done.p_buffer[i];
         }
+
+        // Reset Integrator
+        audible_integrator_reset();
     }
 }
 
@@ -144,8 +147,7 @@ void one_second_timer_handler (void* p_context) {
     }
 }
 
-static void adc_config(void)
-{
+static void adc_config(void) {
     ret_code_t ret_code;
     nrf_drv_adc_config_t config = NRF_DRV_ADC_DEFAULT_CONFIG;
 
@@ -163,6 +165,9 @@ int main(void) {
 
     // Enable internal DC-DC converter to save power
     // sd_power_dcdc_mode_set(NRF_POWER_DCDC_ENABLE);
+
+	// Init audiBLE
+	audible_init();
 
     // Setup ADC
     adc_config();
