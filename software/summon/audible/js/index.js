@@ -77,7 +77,7 @@ var app = {
         var advertisement = device.advertisement;
 
         // Check this is something we can parse
-        if (advertisement.localName == 'squall+PIR' &&
+        if (advertisement.localName == 'audiBLE' &&
                 advertisement.manufacturerData) { 
             var mandata = advertisement.manufacturerData;
 
@@ -86,21 +86,22 @@ var app = {
 			
 			//check that it's a data packet
 			app.log(mandata);
-			if (mandata[0] == 224) {
-				//app.log(mandata);
-				if(mandata[3] || mandata[4]) {
-        			document.getElementById("tempVal").innerHTML = "yes";
-				} else {
-        			document.getElementById("tempVal").innerHTML = "no";
-				}
+            document.getElementById("temp").innerHTML = mandata.toString();
+			// if (mandata[0] == 224) {
+			// 	//app.log(mandata);
+			// 	if(mandata[3] || mandata[4]) {
+   //      			document.getElementById("tempVal").innerHTML = "yes";
+			// 	} else {
+   //      			document.getElementById("tempVal").innerHTML = "no";
+			// 	}
 
 
-				if(mandata[5]) {
-        			document.getElementById("luxVal").innerHTML = "yes";
-				} else {
-        			document.getElementById("luxVal").innerHTML = "no";
-				}
-			}
+			// 	if(mandata[5]) {
+   //      			document.getElementById("luxVal").innerHTML = "yes";
+			// 	} else {
+   //      			document.getElementById("luxVal").innerHTML = "no";
+			// 	}
+			// }
 
 
             app.update_time_ago();
