@@ -28,8 +28,10 @@ static nrf_drv_adc_channel_t m_channel_config
 #define UMICH_COMPANY_IDENTIFIER 0x02E0
 #define AUDIBLE_SERVICE 0x1E
 
+#define LED 18
+ 
 // https://rawgit.com/lab11/blees/master/summon/squall-pir/index.html
-#define PHYSWEB_URL "j2x.us/sbMMHT"  //CHANGE THIS!!!
+#define PHYSWEB_URL "goo.gl/q6hmSJ"  //CHANGE THIS!!!
 
 // Need this for one second timer
 #define ONE_SECOND APP_TIMER_TICKS(6000, APP_TIMER_PRESCALER)
@@ -127,6 +129,11 @@ static void adc_event_handler(nrf_drv_adc_evt_t const * p_event) {
         {
             // Get data
             aud_data.sound_level = p_event->data.done.p_buffer[i];
+            if(p_event->data.done.p_buffer[i] > 512) {
+                led_on(LED);
+            }else {
+                led_off(LED);
+            }                
         }
 
         // Reset Integrator
@@ -194,8 +201,10 @@ int main(void) {
 
     // Setup a timer to keep track of a minute
     app_timer_create(&one_second_timer,
-                     APP_TIMER_MODE_SINGLE_SHOT,
+                     APP_TIMER_MODE_REPEATED,
                      one_second_timer_handler);
+
+    app_timer_start(one_second_timer, ONE_SECOND, NULL);
 
     // PIR pin needs a pull down
     // nrf_gpio_cfg_input(INTERRUPT_PIN, NRF_GPIO_PIN_PULLDOWN);
