@@ -1,2 +1,2 @@
 # audiBLE
-Bluetooth Low Energy Audio Sensor
+Bluetooth Low Energy audio sensing shield for squall
